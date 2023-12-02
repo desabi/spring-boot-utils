@@ -16,4 +16,9 @@ class AopaApplicationTests {
 		shipmentService.shipStuff();
 	}
 
+	@Test
+	void testBeforeLogWithBill() {
+		shipmentService.shipStuffWithBill();
+	}
+
 }

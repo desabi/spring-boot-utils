@@ -9,6 +9,10 @@ public class ShipmentService {
     @MyCustomLog
     // this here is whats called a join point
     public void shipStuff() {
-        System.out.println("In Service");
+        System.out.println("In Service (annotation)");
+    }
+
+    public void shipStuffWithBill() {
+        System.out.println("In service with bill (pointcut)");
     }
 }
