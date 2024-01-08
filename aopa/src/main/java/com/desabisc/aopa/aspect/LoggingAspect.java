@@ -26,10 +26,16 @@ public class LoggingAspect {
     }
 
     /**
+     * Pointcut: The pointcut expression "execution(* com.example.service.MyService.*(..))" is used to define
+     * where the advice should be applied.
+     * It specifies that the advice should be executed before any method (*) in the MyService class,
+     * regardless of return type (*) and parameters ((..)).
+     * */
+    @Before("execution(* com.desabisc.aopa.service.MyService.*(..))")
+    /**
      * Advice: The advice is the action taken at a particular join point.
      * In this case, it's the logBeforeServiceMethods() method annotated with @Before.
      * */
-    @Before("execution(* com.desabisc.aopa.service.MyService.*(..))")
     public void logBeforeServiceMethods() {
         System.out.println("Logging before MyService methods");
     }
