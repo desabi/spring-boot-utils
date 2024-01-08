@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Around("execution(* com.desabisc.aopa.service.*.*(..))")
+    @Around("execution(* com.desabisc.aopa.service.ExampleService.*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object result = joinPoint.proceed();
@@ -23,6 +23,15 @@ public class LoggingAspect {
         System.out.println("Method " + joinPoint.getSignature() + " executed in " + (endTime - startTime) + "ms");
 
         return result;
+    }
+
+    /**
+     * Advice: The advice is the action taken at a particular join point.
+     * In this case, it's the logBeforeServiceMethods() method annotated with @Before.
+     * */
+    @Before("execution(* com.desabisc.aopa.service.MyService.*(..))")
+    public void logBeforeServiceMethods() {
+        System.out.println("Logging before MyService methods");
     }
 
     /**
@@ -42,4 +51,6 @@ public class LoggingAspect {
     public void logAllMethodCallsAdvice() {
         System.out.println("In Aspect");
     }
+
+
 }

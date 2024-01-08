@@ -1,6 +1,7 @@
 package com.desabisc.aopa;
 
 import com.desabisc.aopa.service.ExampleService;
+import com.desabisc.aopa.service.MyService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,6 +17,10 @@ public class AopaApplication {
 		ExampleService exampleService = context.getBean(ExampleService.class);
 		String greeting = exampleService.hello("John");
 		System.out.println(greeting);
+
+		MyService myService = context.getBean(MyService.class);
+		myService.performAction();
+		System.out.println(myService.getData("36"));
 	}
 
 }
