@@ -52,5 +52,30 @@ public class LoggingAspect {
         System.out.println("In Aspect");
     }
 
+    /**
+     * Pointcut expressions start with a Pointcut Designator (PCD),
+     * which specifies what methods to be targeted by our Advice.
+     * */
+    @Pointcut("execution(public void com.desabisc.aopa.service.ShipmentService.shipStuffWithBill())")
+    public void logPointcutWithExecution() {}
+
+    /**
+     * Now, let’s add Advice matching the above Pointcut
+     * */
+    @Before("logPointcutWithExecution()")
+    public void logMethodCallsWithExecutionAdvice() {
+        System.out.println("In Aspect from execution");
+    }
+
+    /**
+     * within: This is used to match all the JoinPoint methods in a given class, package, or sub-package.
+     * */
+    @Pointcut("within(com.desabisc.aopa.service.BillingService)")
+    public void logPointcutWithin() {}
+
+    @Before("logPointcutWithin()")
+    public void logMethodCallsWithinAdvice(){
+        System.out.println("In Aspect from within");
+    }
 
 }
