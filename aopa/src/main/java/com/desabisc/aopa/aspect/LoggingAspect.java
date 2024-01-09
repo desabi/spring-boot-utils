@@ -14,17 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Around("execution(* com.desabisc.aopa.service.ExampleService.*(..))")
-    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        long startTime = System.currentTimeMillis();
-        Object result = joinPoint.proceed();
-        long endTime = System.currentTimeMillis();
-
-        System.out.println("Method " + joinPoint.getSignature() + " executed in " + (endTime - startTime) + "ms");
-
-        return result;
-    }
-
     /**
      * Pointcut: The pointcut expression "execution(* com.example.service.MyService.*(..))" is used to define
      * where the advice should be applied.
@@ -38,6 +27,17 @@ public class LoggingAspect {
      * */
     public void logBeforeServiceMethods() {
         System.out.println("Logging before MyService methods");
+    }
+
+    @Around("execution(* com.desabisc.aopa.service.ExampleService.*(..))")
+    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+        long startTime = System.currentTimeMillis();
+        Object result = joinPoint.proceed();
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("Method " + joinPoint.getSignature() + " executed in " + (endTime - startTime) + "ms");
+
+        return result;
     }
 
     /**

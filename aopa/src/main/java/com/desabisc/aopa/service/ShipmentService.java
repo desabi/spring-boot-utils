@@ -12,6 +12,7 @@ public class ShipmentService {
         System.out.println("In Service (annotation)");
     }
 
+    // this here is whats called a join point
     public void shipStuffWithBill() {
         System.out.println("In service with bill (pointcut)");
     }
