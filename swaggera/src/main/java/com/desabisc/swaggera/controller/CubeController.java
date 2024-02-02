@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/*
+ * url de acceso: http://localhost:8080/swagger-ui/index.html
+ * */
 @RestController
 @RequestMapping("/swaggera")
 public class CubeController implements CubeApi {

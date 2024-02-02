@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/*
+* url de acceso: http://localhost:8080/swagger-ui/index.html
+* */
 @RestController
 @RequestMapping("/swaggera")
 @Tag(name = "Parametros", description = "Ejemplos de parametros simples")
